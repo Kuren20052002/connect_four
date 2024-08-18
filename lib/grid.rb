@@ -1,7 +1,9 @@
+require "colorize"
+
 class Grid
   attr_reader :grid
 
-  def initialize(squares = Array.new(6) { Array.new(7, 0) })
+  def initialize(squares = Array.new(6) { Array.new(7, " ") })
     @grid = squares
   end
 
@@ -9,7 +11,7 @@ class Grid
     return nil unless valid_move?(column)
 
     (0..5).each do |row|
-      if @grid[row][column - 1] == 0
+      if @grid[row][column - 1] == " "
         @grid[row][column - 1] = token
         break
       end
@@ -17,20 +19,20 @@ class Grid
   end
 
   def display
-    puts "+-+-+-+-+-+-+-+"
+    puts "+ --- + --- + --- + --- + --- + --- + --- +"
     @grid.reverse.each do |row|
       row_string = ""
       row.each do |cell|
-        row_string << "|#{cell}"
+        row_string << "|  #{cell}  "
       end
       puts "#{row_string}|"
-      puts "+-+-+-+-+-+-+-+"
+      puts "+ --- + --- + --- + --- + --- + --- + --- +"
     end
   end
 
   def valid_move?(column)
     return false unless column.between?(0, 6)
-    return false unless @grid[5][column - 1] == 0
+    return false unless @grid[5][column - 1] == " "
 
     true
   end

@@ -13,12 +13,12 @@ describe Grid do
     context "when the column is not empty" do
       subject(:game_grid) do
         described_class.new([
-                              ["X", 0, 0, 0, 0, 0, 0], # Bottom row
-                              ["X", 0, 0, 0, 0, 0, 0],
-                              ["X", 0, 0, 0, 0, 0, 0],
-                              ["X", 0, 0, 0, 0, 0, 0],
-                              [0, 0, 0, 0, 0, 0, 0],
-                              [0, 0, 0, 0, 0, 0, 0]
+                              ["X", " ", " ", " ", " ", " ", " "], # Bottom row
+                              ["X", " ", " ", " ", " ", " ", " "],
+                              ["X", " ", " ", " ", " ", " ", " "],
+                              ["X", " ", " ", " ", " ", " ", " "],
+                              [" ", " ", " ", " ", " ", " ", " "],
+                              [" ", " ", " ", " ", " ", " ", " "]
                             ])
       end
       it "drop to the bottom" do
@@ -32,14 +32,22 @@ describe Grid do
     context "when the column is full"
     subject(:game_valid) do
       described_class.new([
-                            ["X", 0, 0, 0, 0, 0, 0], # Bottom row
-                            ["X", 0, 0, 0, 0, 0, 0],
-                            ["X", 0, 0, 0, 0, 0, 0],
-                            ["X", 0, 0, 0, 0, 0, 0],
-                            ["X", 0, 0, 0, 0, 0, 0],
-                            ["X", 0, 0, 0, 0, 0, 0]
+                            ["X", "X", " ", " ", " ", " ", " "], # Bottom row
+                            ["X", " ", " ", " ", " ", " ", " "],
+                            ["X", " ", " ", " ", " ", " ", " "],
+                            ["X", " ", " ", " ", " ", " ", " "],
+                            ["X", " ", " ", " ", " ", " ", " "],
+                            ["X", " ", " ", " ", " ", " ", " "]
                           ])
     end
+    it "return true" do
+      expect(game_valid.valid_move?(2)).to be true
+    end
+
+    it "return true" do
+      expect(game_valid.valid_move?(5)).to be true
+    end
+
     it "return false" do
       expect(game_valid.valid_move?(1)).to be false
     end
