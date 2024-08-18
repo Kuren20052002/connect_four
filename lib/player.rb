@@ -1,6 +1,8 @@
 require "colorize"
 
 class Player
+  attr_reader :token
+
   def initialize(tok = pick_token)
     @token = tok
   end

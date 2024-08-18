@@ -19,7 +19,7 @@ class Grid
   end
 
   def display
-    puts "+ --- + --- + --- + --- + --- + --- + --- +"
+    puts "\n\n+ --- + --- + --- + --- + --- + --- + --- +"
     @grid.reverse.each do |row|
       row_string = ""
       row.each do |cell|
