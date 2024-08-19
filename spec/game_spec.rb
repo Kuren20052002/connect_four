@@ -6,6 +6,12 @@ describe Game do
     allow_any_instance_of(Player).to receive(:pick_token).and_return(RED_TOKEN)
   end
   describe "#initialize" do
+    it "initialize the correct type" do
+      game = Game.new
+      expect(game.grid).to be_a Grid
+      expect(game.player1).to be_a Player
+      expect(game.player2).to be_a Player
+    end
     context "When Player 1 is Red" do
       it "Player 2 is yellow" do
         game = Game.new
