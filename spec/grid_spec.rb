@@ -8,6 +8,11 @@ describe Grid do
         game_grid.drop_token(3, "O")
         expect(game_grid.grid[0][2]).to eq("O")
       end
+
+      it "drop to the bottom" do
+        game_grid.drop_token(7, "O")
+        expect(game_grid.grid[0][6]).to eq("O")
+      end
     end
 
     context "when the column is not empty" do
@@ -42,6 +47,10 @@ describe Grid do
     end
     it "return true" do
       expect(game_valid.valid_move?(2)).to be true
+    end
+
+    it "return true" do
+      expect(game_valid.valid_move?(7)).to be true
     end
 
     it "return true" do

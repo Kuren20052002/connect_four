@@ -19,7 +19,8 @@ class Grid
   end
 
   def display
-    puts "\n\n+ --- + --- + --- + --- + --- + --- + --- +"
+    puts "\n\n   1     2     3     4     5     6     7   "
+    puts "+ --- + --- + --- + --- + --- + --- + --- +"
     @grid.reverse.each do |row|
       row_string = ""
       row.each do |cell|
@@ -31,7 +32,7 @@ class Grid
   end
 
   def valid_move?(column)
-    return false unless column.between?(0, 6)
+    return false unless column.between?(1, 7)
     return false unless @grid[5][column - 1] == " "
 
     true

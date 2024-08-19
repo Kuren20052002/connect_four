@@ -16,15 +16,12 @@ class Player
       puts "Please choose between 1 and 2"
       input = gets.chomp.to_i
     end
+    print input == 1 ? "Then Player 2 will get the yellow tokens!" : "Then Player 2 will get the red tokens!"
     input == 1 ? "O".colorize(:red) : "O".colorize(:yellow)
   end
 
   def make_move
     puts "Pick your move"
     gets.chomp.to_i
-  end
-
-  def to_s
-    "Player #{@token}"
   end
 end
